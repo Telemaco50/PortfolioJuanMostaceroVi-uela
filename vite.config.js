@@ -6,7 +6,7 @@ import fs from 'fs/promises';
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.glb'],
-  base: '/PortfolioJuanMostaceroVi-uela/',
+  base: '/',
   esbuild: {
     loader: 'jsx',
   },
