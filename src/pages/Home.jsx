@@ -46,76 +46,76 @@ const Home = () => {
 
   const [islandScale, islandPosition] = adjustIslandForScreenSize();
 
-  const ResaltarModel = () => {
-    const { nodes, materials } = useGLTF('src/assets/3d/resaltar.glb');
-    const meshRef = useRef();
-    const scaleFactors = useRef({ x: 1.5, y: 1, z: 1.5 }); // Escalas iniciales para cada eje
+  // const ResaltarModel = () => {
+  //   const { nodes, materials } = useGLTF('/assets/3d/resaltar.glb');
+  //   const meshRef = useRef();
+  //   const scaleFactors = useRef({ x: 1.5, y: 1, z: 1.5 }); // Escalas iniciales para cada eje
 
-    useFrame((state, delta) => {
-      if (isHovered2) {
-        const breathingScale = Math.sin(state.clock.elapsedTime * 2) * 0.1 + 1;
-        meshRef.current.scale.set(
-          scaleFactors.current.x * breathingScale,
-          scaleFactors.current.y * breathingScale,
-          scaleFactors.current.z * breathingScale
-        );
-      } else {
-        meshRef.current.scale.set(scaleFactors.current.x, scaleFactors.current.y, scaleFactors.current.z);
-      }
-    });
+  //   useFrame((state, delta) => {
+  //     if (isHovered2) {
+  //       const breathingScale = Math.sin(state.clock.elapsedTime * 2) * 0.1 + 1;
+  //       meshRef.current.scale.set(
+  //         scaleFactors.current.x * breathingScale,
+  //         scaleFactors.current.y * breathingScale,
+  //         scaleFactors.current.z * breathingScale
+  //       );
+  //     } else {
+  //       meshRef.current.scale.set(scaleFactors.current.x, scaleFactors.current.y, scaleFactors.current.z);
+  //     }
+  //   });
 
 
-    return (
-      <mesh
-        ref={meshRef}
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube002.geometry}
-        material={materials['Material.001']}
-        position={[50, 45, -50]}
-        scale={[scaleFactors.current.x, scaleFactors.current.y, scaleFactors.current.z]}
-        visible={isHovered1}
-        onPointerOver={() => setIsHovered1(true)}
-        onPointerOut={() => setIsHovered1(false)}
-        onClick={() => window.location.href = "/prjects.html"}
-      />
-    );
-  };
+  //   return (
+  //     <mesh
+  //       ref={meshRef}
+  //       castShadow
+  //       receiveShadow
+  //       geometry={nodes.Cube002.geometry}
+  //       material={materials['Material.001']}
+  //       position={[50, 45, -50]}
+  //       scale={[scaleFactors.current.x, scaleFactors.current.y, scaleFactors.current.z]}
+  //       visible={isHovered1}
+  //       onPointerOver={() => setIsHovered1(true)}
+  //       onPointerOut={() => setIsHovered1(false)}
+  //       onClick={() => window.location.href = "/prjects.html"}
+  //     />
+  //   );
+  // };
 
-  const ResaltarModel2 = () => {
-    const { nodes, materials } = useGLTF('src/assets/3d/resaltar.glb');
-    const meshRef = useRef();
-    const scaleFactors = useRef({ x: 1, y: 2, z: 2 }); // Escalas iniciales para cada eje
+  // const ResaltarModel2 = () => {
+  //   const { nodes, materials } = useGLTF('src/assets/3d/resaltar.glb');
+  //   const meshRef = useRef();
+  //   const scaleFactors = useRef({ x: 1, y: 2, z: 2 }); // Escalas iniciales para cada eje
 
-    useFrame((state, delta) => {
-      if (isHovered2) {
-        const breathingScale = Math.sin(state.clock.elapsedTime * 2) * 0.1 + 1;
-        meshRef.current.scale.set(
-          scaleFactors.current.x * breathingScale,
-          scaleFactors.current.y * breathingScale,
-          scaleFactors.current.z * breathingScale
-        );
-      } else {
-        meshRef.current.scale.set(scaleFactors.current.x, scaleFactors.current.y, scaleFactors.current.z);
-      }
-    });
+  //   useFrame((state, delta) => {
+  //     if (isHovered2) {
+  //       const breathingScale = Math.sin(state.clock.elapsedTime * 2) * 0.1 + 1;
+  //       meshRef.current.scale.set(
+  //         scaleFactors.current.x * breathingScale,
+  //         scaleFactors.current.y * breathingScale,
+  //         scaleFactors.current.z * breathingScale
+  //       );
+  //     } else {
+  //       meshRef.current.scale.set(scaleFactors.current.x, scaleFactors.current.y, scaleFactors.current.z);
+  //     }
+  //   });
 
-    return (
-      <mesh
-        ref={meshRef}
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube002.geometry}
-        material={materials['Material.001']}
-        position={[-50, 70, -15]}
-        scale={[scaleFactors.current.x, scaleFactors.current.y, scaleFactors.current.z]}
-        visible={isHovered2}
-        onPointerOver={() => setIsHovered2(true)}
-        onPointerOut={() => setIsHovered2(false)}
-        onClick={() => navigate('/about')}
-      />
-    );
-  };
+  //   return (
+  //     <mesh
+  //       ref={meshRef}
+  //       castShadow
+  //       receiveShadow
+  //       geometry={nodes.Cube002.geometry}
+  //       material={materials['Material.001']}
+  //       position={[-50, 70, -15]}
+  //       scale={[scaleFactors.current.x, scaleFactors.current.y, scaleFactors.current.z]}
+  //       visible={isHovered2}
+  //       onPointerOver={() => setIsHovered2(true)}
+  //       onPointerOut={() => setIsHovered2(false)}
+  //       onClick={() => navigate('/about')}
+  //     />
+  //   );
+  // };
 
   const CameraLogger = () => {
     const { camera } = useThree();
@@ -209,8 +209,8 @@ const Home = () => {
               castShadow // Enable shadows for the Island object
               receiveShadow // Receive shadows from other objects
             />
-            <ResaltarModel />
-            <ResaltarModel2 />
+            {/* <ResaltarModel />
+            <ResaltarModel2 /> */}
             <Monitor
             position={[50,  25, -70]} 
             rotation={[0, -0.5, 0]} 
