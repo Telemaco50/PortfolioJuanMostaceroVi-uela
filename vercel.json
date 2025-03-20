@@ -1,11 +1,16 @@
 {
-    "github": {
-        "silent": true
-    },
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/"
-        }
-    ]
+  "github": {
+    "silent": true
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "build": {
+    "env": {
+      "NPM_RC": "legacy-peer-deps=true"
+    }
+  }
 }
